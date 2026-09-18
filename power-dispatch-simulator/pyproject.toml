@@ -1,0 +1,30 @@
+[project]
+name = "power-dispatch-simulator"
+version = "0.1.0"
+description = "Hourly dispatch simulation of a simple power plant driven by market prices."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+power-dispatch = "power_dispatch.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "power_dispatch", from = "src" }]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3"
+ruff = "^0.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
